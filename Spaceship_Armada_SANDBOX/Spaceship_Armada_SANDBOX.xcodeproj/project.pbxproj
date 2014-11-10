@@ -34,6 +34,10 @@
 		6F9FCC0C19F85B3A00392670 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F9FCC0B19F85B3A00392670 /* Images.xcassets */; };
 		6F9FCC0F19F85B3A00392670 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F9FCC0D19F85B3A00392670 /* LaunchScreen.xib */; };
 		6F9FCC1B19F85B3A00392670 /* Spaceship_Armada_SANDBOXTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F9FCC1A19F85B3A00392670 /* Spaceship_Armada_SANDBOXTests.m */; };
+		6FF9B2861A0C3EBC00C80BE6 /* NaveJugador.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B2851A0C3EBC00C80BE6 /* NaveJugador.m */; };
+		6FF9B2891A0C464600C80BE6 /* NaveEnemiga.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B2881A0C464600C80BE6 /* NaveEnemiga.m */; };
+		6FF9B28C1A0C474900C80BE6 /* Bala.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B28B1A0C474900C80BE6 /* Bala.m */; };
+		6FF9B28F1A0C47B100C80BE6 /* ContenedorBala.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B28E1A0C47B100C80BE6 /* ContenedorBala.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +85,14 @@
 		6F9FCC1419F85B3A00392670 /* Spaceship_Armada_SANDBOXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Spaceship_Armada_SANDBOXTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F9FCC1919F85B3A00392670 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6F9FCC1A19F85B3A00392670 /* Spaceship_Armada_SANDBOXTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Spaceship_Armada_SANDBOXTests.m; sourceTree = "<group>"; };
+		6FF9B2841A0C3EBC00C80BE6 /* NaveJugador.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NaveJugador.h; sourceTree = "<group>"; };
+		6FF9B2851A0C3EBC00C80BE6 /* NaveJugador.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NaveJugador.m; sourceTree = "<group>"; };
+		6FF9B2871A0C464600C80BE6 /* NaveEnemiga.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NaveEnemiga.h; sourceTree = "<group>"; };
+		6FF9B2881A0C464600C80BE6 /* NaveEnemiga.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NaveEnemiga.m; sourceTree = "<group>"; };
+		6FF9B28A1A0C474900C80BE6 /* Bala.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bala.h; sourceTree = "<group>"; };
+		6FF9B28B1A0C474900C80BE6 /* Bala.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bala.m; sourceTree = "<group>"; };
+		6FF9B28D1A0C47B100C80BE6 /* ContenedorBala.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContenedorBala.h; sourceTree = "<group>"; };
+		6FF9B28E1A0C47B100C80BE6 /* ContenedorBala.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContenedorBala.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +167,14 @@
 				6F9FCC0519F85B3A00392670 /* GameViewController.h */,
 				6F9FCC0619F85B3A00392670 /* GameViewController.m */,
 				6F9FCC0819F85B3A00392670 /* Main.storyboard */,
+				6FF9B2841A0C3EBC00C80BE6 /* NaveJugador.h */,
+				6FF9B2851A0C3EBC00C80BE6 /* NaveJugador.m */,
+				6FF9B2871A0C464600C80BE6 /* NaveEnemiga.h */,
+				6FF9B2881A0C464600C80BE6 /* NaveEnemiga.m */,
+				6FF9B28A1A0C474900C80BE6 /* Bala.h */,
+				6FF9B28B1A0C474900C80BE6 /* Bala.m */,
+				6FF9B28D1A0C47B100C80BE6 /* ContenedorBala.h */,
+				6FF9B28E1A0C47B100C80BE6 /* ContenedorBala.m */,
 				6F9FCC0B19F85B3A00392670 /* Images.xcassets */,
 				6F2449B519FDBC6E002CA221 /* Assets */,
 				6F9FCC0D19F85B3A00392670 /* LaunchScreen.xib */,
@@ -309,8 +329,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				6F9FCC0719F85B3A00392670 /* GameViewController.m in Sources */,
+				6FF9B28C1A0C474900C80BE6 /* Bala.m in Sources */,
+				6FF9B2861A0C3EBC00C80BE6 /* NaveJugador.m in Sources */,
 				6F9FCBFF19F85B3A00392670 /* AppDelegate.m in Sources */,
+				6FF9B28F1A0C47B100C80BE6 /* ContenedorBala.m in Sources */,
 				6F9FCC0219F85B3A00392670 /* GameScene.m in Sources */,
+				6FF9B2891A0C464600C80BE6 /* NaveEnemiga.m in Sources */,
 				6F9FCBFC19F85B3A00392670 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -387,7 +411,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -423,7 +447,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
@@ -436,6 +460,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Spaceship_Armada_SANDBOX/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -446,6 +471,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Spaceship_Armada_SANDBOX/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
