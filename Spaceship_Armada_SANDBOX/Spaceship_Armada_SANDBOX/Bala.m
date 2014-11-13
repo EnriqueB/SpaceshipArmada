@@ -16,4 +16,7 @@
     _sp = sp;
     return self;
 }
+-(void)move{
+    _posY+=_sp;
+}
 @end

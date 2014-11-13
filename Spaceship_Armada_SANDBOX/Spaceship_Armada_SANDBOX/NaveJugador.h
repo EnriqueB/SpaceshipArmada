@@ -7,9 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <SpriteKit/SpriteKit.h>
 #import "ContenedorBala.h"
 
-@interface NaveJugador : NSObject
+@interface NaveJugador : SKScene
 @property(assign, nonatomic) NSInteger posX;
 @property(assign, nonatomic) NSInteger posY;
 @property(strong, nonatomic) NSString *spriteName;
@@ -18,4 +19,5 @@
 
 -(id)initWithData:(NSInteger)X posY:(NSInteger)Y Sprite:(NSString*)sprite Speed:(NSInteger)sp;
 -(void)shoot;
+-(void)move;
 @end

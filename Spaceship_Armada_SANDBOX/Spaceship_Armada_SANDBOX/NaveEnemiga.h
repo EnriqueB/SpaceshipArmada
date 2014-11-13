@@ -7,9 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <SpriteKit/SpriteKit.h>
 #import "ContenedorBala.h"
 
-@interface NaveEnemiga : NSObject
+@interface NaveEnemiga : SKScene
 @property(assign, nonatomic) NSInteger posX;
 @property(assign, nonatomic) NSInteger posY;
 @property(strong, nonatomic) NSString *spriteName;
@@ -19,4 +20,5 @@
 
 -(id)initWithData:(NSInteger)X posY:(NSInteger)Y Sprite:(NSString*)sprite Speed:(NSInteger)sp Health:(NSInteger)health;
 -(void)shoot;
+-(void)move;
 @end

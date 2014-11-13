@@ -22,4 +22,7 @@
     Bala *b = [[Bala alloc] initWithData:self.posX posY:self.posY Sprite:@"bala.jpg" Speed:5];
     [_container.arregloBalas addObject:b];
 }
+-(void)move{
+    _posY+=_sp;
+}
 @end

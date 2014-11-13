@@ -7,12 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <SpriteKit/SpriteKit.h>
 
-@interface Bala : NSObject
+@interface Bala : SKScene
 @property(assign, nonatomic) NSInteger posX;
 @property(assign, nonatomic) NSInteger posY;
 @property(strong, nonatomic) NSString *spriteName;
 @property(assign, nonatomic) NSInteger sp;
 
 -(id)initWithData:(NSInteger)X posY:(NSInteger)Y Sprite:(NSString*)sprite Speed:(NSInteger)sp;
+-(void)move;
 @end

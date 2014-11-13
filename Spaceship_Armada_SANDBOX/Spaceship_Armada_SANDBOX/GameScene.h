@@ -13,10 +13,11 @@
 #import "ContenedorBala.h"
 
 @interface GameScene : SKScene
-@property (strong, nonatomic) NaveJugador *jugador;
-@property (strong, nonatomic) NSMutableArray *enemigos;
-@property (strong, nonatomic) ContenedorBala *container;
+@property (assign, nonatomic) NSInteger spawnRate;
+@property (assign, nonatomic) NSInteger counter;
+@property (assign, nonatomic) NSInteger enemyShootRate;
+@property (assign, nonatomic) NSInteger playerShootRate;
 
--(void)checkCollision;
+
 
 @end
