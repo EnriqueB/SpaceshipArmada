@@ -8,14 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import <SpriteKit/SpriteKit.h>
-#import "ContenedorBala.h"
+#import "HighscoreList.h"
 
 @interface NaveJugador : SKScene
 @property(assign, nonatomic) NSInteger posX;
 @property(assign, nonatomic) NSInteger posY;
 @property(strong, nonatomic) NSString *spriteName;
 @property(assign, nonatomic) NSInteger sp;
-@property(strong, nonatomic) ContenedorBala *container;
+@property(strong, nonatomic) HighscoreList *container;
 
 -(id)initWithData:(NSInteger)X posY:(NSInteger)Y Sprite:(NSString*)sprite Speed:(NSInteger)sp;
 -(void)shoot;

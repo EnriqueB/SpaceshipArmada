@@ -23,6 +23,8 @@
 		6F2449D719FDBDC0002CA221 /* conde.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6F2449CD19FDBDC0002CA221 /* conde.jpg */; };
 		6F2449D819FDBDC0002CA221 /* enrique.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6F2449CE19FDBDC0002CA221 /* enrique.jpg */; };
 		6F2449D919FDBDC0002CA221 /* javi.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6F2449CF19FDBDC0002CA221 /* javi.jpg */; };
+		6F63D14E1A19A6AE001B3682 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F63D14D1A19A6AE001B3682 /* background.png */; };
+		6F63D1511A19AF0D001B3682 /* LocalHighscores.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F63D1501A19AF0D001B3682 /* LocalHighscores.m */; };
 		6F9FCBFC19F85B3A00392670 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F9FCBFB19F85B3A00392670 /* main.m */; };
 		6F9FCBFF19F85B3A00392670 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F9FCBFE19F85B3A00392670 /* AppDelegate.m */; };
 		6F9FCC0219F85B3A00392670 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F9FCC0119F85B3A00392670 /* GameScene.m */; };
@@ -43,7 +45,7 @@
 		6FF9B2861A0C3EBC00C80BE6 /* NaveJugador.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B2851A0C3EBC00C80BE6 /* NaveJugador.m */; };
 		6FF9B2891A0C464600C80BE6 /* NaveEnemiga.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B2881A0C464600C80BE6 /* NaveEnemiga.m */; };
 		6FF9B28C1A0C474900C80BE6 /* Bala.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B28B1A0C474900C80BE6 /* Bala.m */; };
-		6FF9B28F1A0C47B100C80BE6 /* ContenedorBala.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B28E1A0C47B100C80BE6 /* ContenedorBala.m */; };
+		6FF9B28F1A0C47B100C80BE6 /* HighscoreList.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B28E1A0C47B100C80BE6 /* HighscoreList.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +75,9 @@
 		6F2449CD19FDBDC0002CA221 /* conde.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = conde.jpg; path = ../../conde.jpg; sourceTree = "<group>"; };
 		6F2449CE19FDBDC0002CA221 /* enrique.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = enrique.jpg; path = ../../enrique.jpg; sourceTree = "<group>"; };
 		6F2449CF19FDBDC0002CA221 /* javi.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = javi.jpg; path = ../../javi.jpg; sourceTree = "<group>"; };
+		6F63D14D1A19A6AE001B3682 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background.png; path = ../background.png; sourceTree = "<group>"; };
+		6F63D14F1A19AF0D001B3682 /* LocalHighscores.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalHighscores.h; sourceTree = "<group>"; };
+		6F63D1501A19AF0D001B3682 /* LocalHighscores.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalHighscores.m; sourceTree = "<group>"; };
 		6F9FCBF619F85B3A00392670 /* Spaceship_Armada_SANDBOX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spaceship_Armada_SANDBOX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F9FCBFA19F85B3A00392670 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6F9FCBFB19F85B3A00392670 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -103,8 +108,8 @@
 		6FF9B2881A0C464600C80BE6 /* NaveEnemiga.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NaveEnemiga.m; sourceTree = "<group>"; };
 		6FF9B28A1A0C474900C80BE6 /* Bala.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bala.h; sourceTree = "<group>"; };
 		6FF9B28B1A0C474900C80BE6 /* Bala.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bala.m; sourceTree = "<group>"; };
-		6FF9B28D1A0C47B100C80BE6 /* ContenedorBala.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContenedorBala.h; sourceTree = "<group>"; };
-		6FF9B28E1A0C47B100C80BE6 /* ContenedorBala.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContenedorBala.m; sourceTree = "<group>"; };
+		6FF9B28D1A0C47B100C80BE6 /* HighscoreList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighscoreList.h; sourceTree = "<group>"; };
+		6FF9B28E1A0C47B100C80BE6 /* HighscoreList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighscoreList.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				6F2449B619FDBC6E002CA221 /* credits.png */,
+				6F63D14D1A19A6AE001B3682 /* background.png */,
 				6FEF566C1A14291300767F83 /* bullet1.png */,
 				6FEF566D1A14291300767F83 /* bullet2_blue.png */,
 				6FEF566E1A14291300767F83 /* bullet2_green.png */,
@@ -185,14 +191,16 @@
 				6F9FCC0519F85B3A00392670 /* GameViewController.h */,
 				6F9FCC0619F85B3A00392670 /* GameViewController.m */,
 				6F9FCC0819F85B3A00392670 /* Main.storyboard */,
+				6F63D14F1A19AF0D001B3682 /* LocalHighscores.h */,
+				6F63D1501A19AF0D001B3682 /* LocalHighscores.m */,
 				6FF9B2841A0C3EBC00C80BE6 /* NaveJugador.h */,
 				6FF9B2851A0C3EBC00C80BE6 /* NaveJugador.m */,
 				6FF9B2871A0C464600C80BE6 /* NaveEnemiga.h */,
 				6FF9B2881A0C464600C80BE6 /* NaveEnemiga.m */,
 				6FF9B28A1A0C474900C80BE6 /* Bala.h */,
 				6FF9B28B1A0C474900C80BE6 /* Bala.m */,
-				6FF9B28D1A0C47B100C80BE6 /* ContenedorBala.h */,
-				6FF9B28E1A0C47B100C80BE6 /* ContenedorBala.m */,
+				6FF9B28D1A0C47B100C80BE6 /* HighscoreList.h */,
+				6FF9B28E1A0C47B100C80BE6 /* HighscoreList.m */,
 				6F9FCC0B19F85B3A00392670 /* Images.xcassets */,
 				6F2449B519FDBC6E002CA221 /* Assets */,
 				6F9FCC0D19F85B3A00392670 /* LaunchScreen.xib */,
@@ -320,6 +328,7 @@
 				6F9FCC0419F85B3A00392670 /* GameScene.sks in Resources */,
 				6F2449BF19FDBC6E002CA221 /* globalHighscores.png in Resources */,
 				6F2449C419FDBC6E002CA221 /* StartGame.png in Resources */,
+				6F63D14E1A19A6AE001B3682 /* background.png in Resources */,
 				6F2449C519FDBC6E002CA221 /* Thumbs.db in Resources */,
 				6FEF56791A14291300767F83 /* naveEnemiga.png in Resources */,
 				6F9FCC0A19F85B3A00392670 /* Main.storyboard in Resources */,
@@ -354,9 +363,10 @@
 			files = (
 				6F9FCC0719F85B3A00392670 /* GameViewController.m in Sources */,
 				6FF9B28C1A0C474900C80BE6 /* Bala.m in Sources */,
+				6F63D1511A19AF0D001B3682 /* LocalHighscores.m in Sources */,
 				6FF9B2861A0C3EBC00C80BE6 /* NaveJugador.m in Sources */,
 				6F9FCBFF19F85B3A00392670 /* AppDelegate.m in Sources */,
-				6FF9B28F1A0C47B100C80BE6 /* ContenedorBala.m in Sources */,
+				6FF9B28F1A0C47B100C80BE6 /* HighscoreList.m in Sources */,
 				6F9FCC0219F85B3A00392670 /* GameScene.m in Sources */,
 				6FF9B2891A0C464600C80BE6 /* NaveEnemiga.m in Sources */,
 				6F9FCBFC19F85B3A00392670 /* main.m in Sources */,

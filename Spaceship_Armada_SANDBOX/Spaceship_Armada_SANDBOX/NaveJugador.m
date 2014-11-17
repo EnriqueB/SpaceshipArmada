@@ -17,12 +17,8 @@
     _posY = Y;
     _spriteName = sprite;
     _sp = sp;
-    [self setContainer:[ContenedorBala getSharedInstance]];
+    [self setContainer:[HighscoreList getSharedInstance]];
     return self;
-}
--(void)shoot{
-    Bala *b = [[Bala alloc] initWithData:self.posX posY:self.posY Sprite:@"bala.jpg" Speed:5];
-    [_container.arregloBalas addObject:b];
 }
 -(void)move{
     //acelerometro?

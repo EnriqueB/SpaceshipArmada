@@ -7,16 +7,17 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
-#import "NaveEnemiga.h"
-#import "NaveJugador.h"
-#import "Bala.h"
-#import "ContenedorBala.h"
+#import "HighscoreList.h"
+#import "GameViewController.h"
 
-@interface GameScene : SKScene
+@interface GameScene : SKScene <SKPhysicsContactDelegate>
 @property (assign, nonatomic) NSInteger spawnRate;
 @property (assign, nonatomic) NSInteger counter;
 @property (assign, nonatomic) NSInteger enemyShootRate;
 @property (assign, nonatomic) NSInteger playerShootRate;
+@property (assign, nonatomic) NSInteger score;
+@property (strong, nonatomic) SKLabelNode *scoreNode;
+@property (nonatomic, copy) void(^gameOverBlock)(NSInteger score);
 
 
 

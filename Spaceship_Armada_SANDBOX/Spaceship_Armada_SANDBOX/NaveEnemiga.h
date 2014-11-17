@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <SpriteKit/SpriteKit.h>
-#import "ContenedorBala.h"
+#import "HighscoreList.h"
 
 @interface NaveEnemiga : SKScene
 @property(assign, nonatomic) NSInteger posX;
@@ -16,7 +16,7 @@
 @property(strong, nonatomic) NSString *spriteName;
 @property(assign, nonatomic) NSInteger sp;
 @property(assign, nonatomic) NSInteger health;
-@property(strong, nonatomic) ContenedorBala *container;
+@property(strong, nonatomic) HighscoreList *container;
 
 -(id)initWithData:(NSInteger)X posY:(NSInteger)Y Sprite:(NSString*)sprite Speed:(NSInteger)sp Health:(NSInteger)health;
 -(void)shoot;
