@@ -45,7 +45,7 @@ CGMutablePathRef path3;
     _scoreNode = [SKLabelNode labelNodeWithFontNamed:@"Arial"];
     _scoreNode.text=[NSString stringWithFormat:@"Score: %ld",(long)_score];
     _scoreNode.fontSize = 30;
-    _scoreNode.position = CGPointMake(self.size.width-140, self.size.height-30);
+    _scoreNode.position = CGPointMake(self.size.width-140, self.size.height-100);
     [self addChild:_scoreNode];
     
     self.physicsWorld.gravity = CGVectorMake(0, 0);
