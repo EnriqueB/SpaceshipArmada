@@ -10,9 +10,10 @@
 #import "Bala.h"
 @interface HighscoreList : NSObject
 @property (strong, nonatomic) NSMutableArray *arregloHighscores;
+@property (strong, nonatomic) NSString *playerName;
 @property (assign, nonatomic) BOOL initialized;
 
 +(HighscoreList*)getSharedInstance;
--(void) agregar:(NSString*)nombre score:(NSInteger)sc;
+-(void) agregar:(NSString*)nombre score:(NSInteger)sc time:(NSInteger)t;
 -(void) initStuff;
 @end

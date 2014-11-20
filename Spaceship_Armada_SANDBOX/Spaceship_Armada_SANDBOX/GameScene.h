@@ -7,6 +7,7 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
+#import <CoreMotion/CoreMotion.h>
 #import "HighscoreList.h"
 #import "GameViewController.h"
 
@@ -16,8 +17,10 @@
 @property (assign, nonatomic) NSInteger enemyShootRate;
 @property (assign, nonatomic) NSInteger playerShootRate;
 @property (assign, nonatomic) NSInteger score;
+@property (assign, nonatomic) NSInteger time;
+@property (assign, nonatomic) NSInteger timeCounter;
 @property (strong, nonatomic) SKLabelNode *scoreNode;
-@property (nonatomic, copy) void(^gameOverBlock)(NSInteger score);
+@property (nonatomic, copy) void(^gameOverBlock)(NSInteger score, NSInteger game_time);
 
 
 

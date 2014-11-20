@@ -25,8 +25,8 @@
         _initialized = TRUE;
     }
 }
--(void)agregar:(NSString *)nombre score:(NSInteger)sc{
-    NSDictionary *obj = [[NSDictionary alloc]initWithObjectsAndKeys:nombre, @"nombre", [NSNumber numberWithInteger:sc], @"score", nil];
+-(void)agregar:(NSString *)nombre score:(NSInteger)sc time:(NSInteger)t{
+    NSDictionary *obj = [[NSDictionary alloc]initWithObjectsAndKeys:nombre, @"nombre", [NSNumber numberWithInteger:sc], @"score", [NSNumber numberWithInteger:t], @"time", nil];
     [_arregloHighscores addObject:obj];
     NSSortDescriptor *sort = [[NSSortDescriptor alloc] initWithKey:@"score" ascending:NO];
     NSArray *tempArray = [_arregloHighscores sortedArrayUsingDescriptors:[NSArray arrayWithObject:sort]];

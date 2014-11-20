@@ -19,7 +19,9 @@ static const uint32_t enemyBulletCategory = 0x1<<3;
 CGMutablePathRef path1;
 CGMutablePathRef path2;
 CGMutablePathRef path3;
+CMMotionManager *motionManager;
 @implementation GameScene
+#define playerSpeed 250;
 
 -(void)didMoveToView:(SKView *)view {
     //self.physics
@@ -36,6 +38,7 @@ CGMutablePathRef path3;
     _spawnRate=50;
     _enemyShootRate=500;
     _playerShootRate=200;
+    _time=0;
     
     SKSpriteNode *sn = [SKSpriteNode spriteNodeWithImageNamed:@"background.png"];
     sn.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
@@ -72,6 +75,31 @@ CGMutablePathRef path3;
     SKAction *repeatShoot = [SKAction repeatActionForever:seq];
     [jugador runAction:repeatShoot];
     
+    motionManager = [[CMMotionManager alloc]init];
+    if([motionManager isAccelerometerAvailable] ==YES){
+        [motionManager startAccelerometerUpdatesToQueue:[[NSOperationQueue alloc] init] withHandler:^(CMAccelerometerData *data, NSError *error)
+        {
+            float destX, destY;
+            float currentX = jugador.position.x;
+            float currentY = jugador.position.y;
+            BOOL shouldMove = NO;
+            if(data.acceleration.y<-0.25){ //tilted to the right
+                destX=currentX + data.acceleration.y * playerSpeed;
+                destY = currentY;
+                shouldMove = YES;
+            }
+            else if(data.acceleration.y > 0.25){ //tilted to the left
+                destX = currentX+ data.acceleration.y * playerSpeed;
+                destY = currentY;
+                shouldMove = YES;
+            }
+            if(shouldMove){
+                SKAction *action = [SKAction moveTo:CGPointMake(destX, destY) duration:1];
+                [jugador runAction:action];
+            }
+        }];
+    }
+    
     [self addChild: jugador];
 }
 -(void)createPaths{
@@ -80,6 +108,12 @@ CGMutablePathRef path3;
     CGPathAddArc(path1, NULL, 100, 0, 100, M_PI, -M_PI_2, FALSE);
     CGPathAddArc(path1, NULL, 100, -200, 100, M_PI_2, -M_PI_2, TRUE);
     CGPathAddArc(path1, NULL, 100, -400, 100, M_PI_2, M_PI, FALSE);
+    path2=CGPathCreateMutable();
+    CGPathMoveToPoint(path2, NULL, 0, 0);
+    CGPathAddLineToPoint(path2, NULL, 0, -100);
+    CGPathAddLineToPoint(path2, NULL, 150, -100);
+    CGPathAddLineToPoint(path2, NULL, 150, -200);
+    CGPathAddLineToPoint(path2, NULL, 5, -200);
     
 }
 static inline CGFloat skRandf(){
@@ -91,6 +125,10 @@ static inline CGFloat skRand(CGFloat low, CGFloat high){
 }
 -(void)didSimulatePhysics{
     [self enumerateChildNodesWithName:@"enemigo" usingBlock:^(SKNode *node, BOOL *stop){
+        if(skRand(0, _enemyShootRate/10)<2){
+            SKAction *shoot = [self shootMethod:NO posX:node.position.x posY:node.position.y-15];
+            [node runAction:shoot];
+        }
         if(node.position.y<0)
             [node removeFromParent];
     }];
@@ -110,7 +148,7 @@ static inline CGFloat skRand(CGFloat low, CGFloat high){
         [node removeFromParent];
     }];
     
-    self.gameOverBlock(_score);
+    self.gameOverBlock(_score, _time);
 }
 -(void)didBeginContact:(SKPhysicsContact*)contact{
     uint32_t bitMaskA = contact.bodyA.categoryBitMask;
@@ -195,8 +233,13 @@ static inline CGFloat skRand(CGFloat low, CGFloat high){
         SKSpriteNode *bala = [SKSpriteNode spriteNodeWithTexture:text];
         bala.position = CGPointMake(X, Y);
         //SKAction *move = [SKAction moveByX:0 y:-55 duration:1];
-        if(!player)
-            move = [SKAction followPath:path1 asOffset:YES orientToPath:NO duration:5];
+        if(!player){
+            CGFloat mov = skRand(0, 2);
+            if(mov<1)
+                move = [SKAction followPath:path1 asOffset:YES orientToPath:NO duration:5];
+            else
+                move =  [SKAction moveByX:0 y:-70 duration:1];
+        }
         else
             move = [SKAction moveByX:0 y:55 duration:.7];
         if(!player)
@@ -224,7 +267,7 @@ static inline CGFloat skRand(CGFloat low, CGFloat high){
     SKTexture *texture = [SKTexture textureWithImageNamed:@"naveEnemiga.png"];
     texture.filteringMode = SKTextureFilteringNearest;
     SKSpriteNode *enemigo = [SKSpriteNode spriteNodeWithTexture:texture];
-    enemigo.position = CGPointMake(skRand(-100, self.size.width-100), self.size.height);
+    enemigo.position = CGPointMake(skRand(40, self.size.width-150), self.size.height);
     enemigo.name = @"enemigo";
     
     enemigo.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:enemigo.size];
@@ -234,24 +277,39 @@ static inline CGFloat skRand(CGFloat low, CGFloat high){
     enemigo.physicsBody.contactTestBitMask = playerCategory | bulletPlayerCategory;
     
     //SKAction *movement = [SKAction moveByX:0 y:-15 duration:1];
-    SKAction *movement = [SKAction followPath:path1 asOffset:YES orientToPath:NO duration:10];
-    SKAction *wait = [SKAction waitForDuration:_enemyShootRate/100+(skRand(0, 3)-3)];
+    CGFloat mov= skRand(0, 3);
+    SKAction *movement;
+    if(mov<1)
+        movement= [SKAction followPath:path1 asOffset:YES orientToPath:NO duration:10];
+    else if(mov<2)
+        movement = [SKAction followPath:path2 asOffset:YES orientToPath:NO duration:8];
+    else
+        movement = [SKAction moveByX:0 y:-35 duration:1];
     SKAction *shoot = [self shootMethod:NO posX:enemigo.position.x posY:enemigo.position.y-enemigo.size.height/2-5];
-    
-    SKAction *seq = [SKAction sequence:@[wait, shoot]];
-    SKAction *repeatShoot = [SKAction repeatActionForever:seq];
     SKAction *repeatMove = [SKAction repeatActionForever:movement];
-    SKAction *group = [SKAction group:@[repeatMove, repeatShoot]];
+    SKAction *group = [SKAction group:@[repeatMove, shoot]];
     [enemigo runAction:group];
     [self addChild:enemigo];
     
 }
 -(void)update:(CFTimeInterval)currentTime {
     _counter++;
+    _timeCounter++;
+    
+    if(_timeCounter==60){
+        _time++;
+        if(_time%50==0){
+            if(_spawnRate>25)
+                _spawnRate-=5;
+            if(_enemyShootRate>200)
+                _enemyShootRate-=20;
+        }
+        _timeCounter=0;
+    }
 
     if(_counter%5==0)
         _score++;
-    _scoreNode.text=[NSString stringWithFormat:@"Score: %d",_score];
+    _scoreNode.text=[NSString stringWithFormat:@"Score: %ld",(long)_score];
     if(_counter==_spawnRate){
         [self spawn];
         _counter=0;

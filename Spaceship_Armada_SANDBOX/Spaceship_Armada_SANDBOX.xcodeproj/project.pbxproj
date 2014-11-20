@@ -25,6 +25,8 @@
 		6F2449D919FDBDC0002CA221 /* javi.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6F2449CF19FDBDC0002CA221 /* javi.jpg */; };
 		6F63D14E1A19A6AE001B3682 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F63D14D1A19A6AE001B3682 /* background.png */; };
 		6F63D1511A19AF0D001B3682 /* LocalHighscores.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F63D1501A19AF0D001B3682 /* LocalHighscores.m */; };
+		6F912F081A1C109900B4CE73 /* NombreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F912F071A1C109900B4CE73 /* NombreViewController.m */; };
+		6F912F0A1A1C159700B4CE73 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F912F091A1C159700B4CE73 /* CoreMotion.framework */; };
 		6F9FCBFC19F85B3A00392670 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F9FCBFB19F85B3A00392670 /* main.m */; };
 		6F9FCBFF19F85B3A00392670 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F9FCBFE19F85B3A00392670 /* AppDelegate.m */; };
 		6F9FCC0219F85B3A00392670 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F9FCC0119F85B3A00392670 /* GameScene.m */; };
@@ -78,6 +80,9 @@
 		6F63D14D1A19A6AE001B3682 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background.png; path = ../background.png; sourceTree = "<group>"; };
 		6F63D14F1A19AF0D001B3682 /* LocalHighscores.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalHighscores.h; sourceTree = "<group>"; };
 		6F63D1501A19AF0D001B3682 /* LocalHighscores.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalHighscores.m; sourceTree = "<group>"; };
+		6F912F061A1C109900B4CE73 /* NombreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NombreViewController.h; sourceTree = "<group>"; };
+		6F912F071A1C109900B4CE73 /* NombreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NombreViewController.m; sourceTree = "<group>"; };
+		6F912F091A1C159700B4CE73 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		6F9FCBF619F85B3A00392670 /* Spaceship_Armada_SANDBOX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spaceship_Armada_SANDBOX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F9FCBFA19F85B3A00392670 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6F9FCBFB19F85B3A00392670 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -117,6 +122,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F912F0A1A1C159700B4CE73 /* CoreMotion.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,6 +171,7 @@
 		6F9FCBED19F85B3A00392670 = {
 			isa = PBXGroup;
 			children = (
+				6F912F091A1C159700B4CE73 /* CoreMotion.framework */,
 				6F9FCBF819F85B3A00392670 /* Spaceship_Armada_SANDBOX */,
 				6F9FCC1719F85B3A00392670 /* Spaceship_Armada_SANDBOXTests */,
 				6F9FCBF719F85B3A00392670 /* Products */,
@@ -191,6 +198,8 @@
 				6F9FCC0519F85B3A00392670 /* GameViewController.h */,
 				6F9FCC0619F85B3A00392670 /* GameViewController.m */,
 				6F9FCC0819F85B3A00392670 /* Main.storyboard */,
+				6F912F061A1C109900B4CE73 /* NombreViewController.h */,
+				6F912F071A1C109900B4CE73 /* NombreViewController.m */,
 				6F63D14F1A19AF0D001B3682 /* LocalHighscores.h */,
 				6F63D1501A19AF0D001B3682 /* LocalHighscores.m */,
 				6FF9B2841A0C3EBC00C80BE6 /* NaveJugador.h */,
@@ -362,6 +371,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6F9FCC0719F85B3A00392670 /* GameViewController.m in Sources */,
+				6F912F081A1C109900B4CE73 /* NombreViewController.m in Sources */,
 				6FF9B28C1A0C474900C80BE6 /* Bala.m in Sources */,
 				6F63D1511A19AF0D001B3682 /* LocalHighscores.m in Sources */,
 				6FF9B2861A0C3EBC00C80BE6 /* NaveJugador.m in Sources */,

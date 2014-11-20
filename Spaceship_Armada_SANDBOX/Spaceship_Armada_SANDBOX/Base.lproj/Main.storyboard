@@ -77,7 +77,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="BV1-FR-VrT" kind="push" id="VIg-SB-a4w"/>
+                                    <segue destination="qKc-nA-DIQ" kind="push" id="MiR-nr-3sg"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dHG-Ke-dzy">
@@ -453,7 +453,49 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J2Z-ZY-TSy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1096" y="-1335"/>
+            <point key="canvasLocation" x="1532" y="-1779"/>
+        </scene>
+        <!--Nombre View Controller-->
+        <scene sceneID="h0w-Ju-mL3">
+            <objects>
+                <viewController id="qKc-nA-DIQ" customClass="NombreViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zuR-6G-hNT"/>
+                        <viewControllerLayoutGuide type="bottom" id="sWR-Vg-weg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jAG-hm-lzL">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="SA.png" translatesAutoresizingMaskIntoConstraints="NO" id="jjj-yS-dPT">
+                                <rect key="frame" x="0.0" y="64" width="768" height="1024"/>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your name, commander" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xjb-lC-08Z">
+                                <rect key="frame" x="247" y="506" width="274" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aJH-6Z-vPm">
+                                <rect key="frame" x="361" y="630" width="46" height="30"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="save:" destination="qKc-nA-DIQ" eventType="touchUpInside" id="oaD-E7-Qn3"/>
+                                    <segue destination="BV1-FR-VrT" kind="push" id="Jms-Ge-ZlI"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="KKu-p9-dW4"/>
+                    <connections>
+                        <outlet property="nombre" destination="xjb-lC-08Z" id="ewo-4Z-cp2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="geE-tj-8IF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-952" y="-1845"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="tXr-a1-R10">
@@ -475,7 +517,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="68" y="-1476"/>
+            <point key="canvasLocation" x="140" y="-1796"/>
         </scene>
     </scenes>
     <resources>
