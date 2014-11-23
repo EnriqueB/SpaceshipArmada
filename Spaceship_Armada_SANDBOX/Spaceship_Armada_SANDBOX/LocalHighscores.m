@@ -21,6 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setHighscores:[HighscoreList getSharedInstance]];
+    [_highscores initStuff];
     localScores = [[NSMutableArray alloc]initWithArray:_highscores.arregloHighscores];
     
     // Uncomment the following line to preserve selection between presentations.

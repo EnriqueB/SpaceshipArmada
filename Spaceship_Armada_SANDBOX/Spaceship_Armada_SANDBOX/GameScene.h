@@ -19,6 +19,7 @@
 @property (assign, nonatomic) NSInteger score;
 @property (assign, nonatomic) NSInteger time;
 @property (assign, nonatomic) NSInteger timeCounter;
+@property (assign, nonatomic) NSInteger counterPlayer;
 @property (strong, nonatomic) SKLabelNode *scoreNode;
 @property (nonatomic, copy) void(^gameOverBlock)(NSInteger score, NSInteger game_time);
 

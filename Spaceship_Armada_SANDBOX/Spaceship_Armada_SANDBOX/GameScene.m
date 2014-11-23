@@ -18,32 +18,37 @@ static const uint32_t bulletPlayerCategory = 0x1<<2;
 static const uint32_t enemyBulletCategory = 0x1<<3;
 CGMutablePathRef path1;
 CGMutablePathRef path2;
-CGMutablePathRef path3;
 CMMotionManager *motionManager;
 @implementation GameScene
-#define playerSpeed 250;
+#define playerSpeed 80;
 
 -(void)didMoveToView:(SKView *)view {
     //self.physics
     if(!_contentCreated){
         [self createSceneContents];
+        SKAction *music = [SKAction repeatActionForever:[SKAction playSoundFileNamed:@"music.mp3" waitForCompletion:YES]];
+        [self runAction:music];
         _contentCreated=TRUE;
     }
 }
 -(void)createSceneContents{
     [self createPaths];
-    
+    srand([[NSDate date] timeIntervalSince1970]);
     _score = 0;
     _counter=0;
-    _spawnRate=50;
-    _enemyShootRate=500;
-    _playerShootRate=200;
+    _counterPlayer=0;
+    _spawnRate=100;
+    _enemyShootRate=200; //2000
+    _playerShootRate=300;
     _time=0;
     
-    SKSpriteNode *sn = [SKSpriteNode spriteNodeWithImageNamed:@"background.png"];
+    
+    SKSpriteNode *sn = [SKSpriteNode spriteNodeWithImageNamed:@"backgroundJuego.png"];
     sn.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
     sn.name = @"background";
+    sn.zPosition = -1;
     [self addChild:sn];
+     
     
     _scoreNode = [SKLabelNode labelNodeWithFontNamed:@"Arial"];
     _scoreNode.text=[NSString stringWithFormat:@"Score: %ld",(long)_score];
@@ -56,7 +61,7 @@ CMMotionManager *motionManager;
     
     self.backgroundColor = [SKColor blackColor];
     self.scaleMode = SKSceneScaleModeAspectFit;
-    SKTexture *texture = [SKTexture textureWithImageNamed:@"navePrincipal.png"];
+    SKTexture *texture = [SKTexture textureWithImageNamed:@"navePrincipal2.png"];
     texture.filteringMode = SKTextureFilteringNearest;
     
     
@@ -68,13 +73,6 @@ CMMotionManager *motionManager;
     jugador.physicsBody.collisionBitMask = enemyCategory;
     jugador.physicsBody.contactTestBitMask = enemyCategory;
     
-    
-    SKAction *wait = [SKAction waitForDuration:_playerShootRate/100];
-    SKAction *shoot = [self shootMethod:YES posX:jugador.position.x posY:jugador.position.y+jugador.size.height/2+5];
-    SKAction *seq = [SKAction sequence:@[wait, shoot]];
-    SKAction *repeatShoot = [SKAction repeatActionForever:seq];
-    [jugador runAction:repeatShoot];
-    
     motionManager = [[CMMotionManager alloc]init];
     if([motionManager isAccelerometerAvailable] ==YES){
         [motionManager startAccelerometerUpdatesToQueue:[[NSOperationQueue alloc] init] withHandler:^(CMAccelerometerData *data, NSError *error)
@@ -82,19 +80,27 @@ CMMotionManager *motionManager;
             float destX, destY;
             float currentX = jugador.position.x;
             float currentY = jugador.position.y;
+            destX = currentX;
+            destY = currentY;
             BOOL shouldMove = NO;
-            if(data.acceleration.y<-0.25){ //tilted to the right
-                destX=currentX + data.acceleration.y * playerSpeed;
-                destY = currentY;
+            if(data.acceleration.x<-0.15){ //tilted to the right
+                destX=currentX -  playerSpeed;
                 shouldMove = YES;
             }
-            else if(data.acceleration.y > 0.25){ //tilted to the left
-                destX = currentX+ data.acceleration.y * playerSpeed;
-                destY = currentY;
+            if(data.acceleration.x > 0.15){ //tilted to the left
+                destX = currentX +  playerSpeed;
+                shouldMove = YES;
+            }
+            if(data.acceleration.y<-0.60){ //tilted to the right
+                destY=currentY -  playerSpeed;
+                shouldMove = YES;
+            }
+            if(data.acceleration.y > -0.50){ //tilted to the left
+                destY = currentY +  playerSpeed;
                 shouldMove = YES;
             }
             if(shouldMove){
-                SKAction *action = [SKAction moveTo:CGPointMake(destX, destY) duration:1];
+                SKAction *action = [SKAction moveTo:CGPointMake(destX, destY) duration:.5];
                 [jugador runAction:action];
             }
         }];
@@ -125,7 +131,8 @@ static inline CGFloat skRand(CGFloat low, CGFloat high){
 }
 -(void)didSimulatePhysics{
     [self enumerateChildNodesWithName:@"enemigo" usingBlock:^(SKNode *node, BOOL *stop){
-        if(skRand(0, _enemyShootRate/10)<2){
+        CGFloat x =skRand(0, _enemyShootRate/4);
+        if(x<2){
             SKAction *shoot = [self shootMethod:NO posX:node.position.x posY:node.position.y-15];
             [node runAction:shoot];
         }
@@ -136,18 +143,20 @@ static inline CGFloat skRand(CGFloat low, CGFloat high){
         if(node.position.y<0)
             [node removeFromParent];
     }];
+    [self enumerateChildNodesWithName:@"jugador" usingBlock:^(SKNode *node, BOOL *stop){
+        _counterPlayer++;
+        if(_counterPlayer==30){
+            SKAction *shoot = [self shootMethod:YES posX:node.position.x posY:node.position.y+32];
+            [node runAction:shoot];
+            _counterPlayer=0;
+        }
+
+    }];
 }
 -(void) gameOver{
     _spawnRate = 0;
-    [self enumerateChildNodesWithName:@"enemigo" usingBlock:^(SKNode *node, BOOL *stop){
-        //if(node.position.y<0)
-        [node removeFromParent];
-    }];
-    [self enumerateChildNodesWithName:@"bala" usingBlock:^(SKNode *node, BOOL *stop){
-        //if(node.position.y<0)
-        [node removeFromParent];
-    }];
-    
+    [self removeAllActions];
+    [self removeAllChildren];
     self.gameOverBlock(_score, _time);
 }
 -(void)didBeginContact:(SKPhysicsContact*)contact{
@@ -176,29 +185,6 @@ static inline CGFloat skRand(CGFloat low, CGFloat high){
         _score+=100;
     }
     
-    
-    /*
-    // Check if bullet has a contact
-    if (((bitMaskA & playerCategory) != 0 && (bitMaskB & enemyCategory)) != 0 ||
-        ((bitMaskB & playerCategory) != 0 && (bitMaskA & enemyCategory)) != 0)
-    {
-        SKNode *goodGuy;
-        SKNode *badGuy;
-        if ([contact.bodyA.node.name isEqualToString: @"jugador"])
-        {
-            goodGuy = contact.bodyA.node;
-            badGuy = contact.bodyB.node;
-        }
-        else
-        {
-            badGuy = contact.bodyA.node;
-            goodGuy = contact.bodyB.node;
-        }
-        
-        // Logic for your game
-        [badGuy removeFromParent];
-    }
-     */
 }
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     /* Called when a touch begins
@@ -225,14 +211,17 @@ static inline CGFloat skRand(CGFloat low, CGFloat high){
     SKAction *shoot = [SKAction runBlock:^{
         SKTexture *text;
         SKAction *move;
-        if(!player)
-            text = [SKTexture textureWithImageNamed:@"bullet1.png"];
+        if(!player){
+            if(skRand(0, 2)<1)
+                text = [SKTexture textureWithImageNamed:@"bullet1.png"];
+            else
+                text = [SKTexture textureWithImageNamed:@"green_bullet.png"];
+        }
         else
             text=[SKTexture textureWithImageNamed:@"bullet2_red.png"];
         text.filteringMode = SKTextureFilteringNearest;
         SKSpriteNode *bala = [SKSpriteNode spriteNodeWithTexture:text];
         bala.position = CGPointMake(X, Y);
-        //SKAction *move = [SKAction moveByX:0 y:-55 duration:1];
         if(!player){
             CGFloat mov = skRand(0, 2);
             if(mov<1)
@@ -264,11 +253,22 @@ static inline CGFloat skRand(CGFloat low, CGFloat high){
     return shoot;
 }
 -(void) spawn{
-    SKTexture *texture = [SKTexture textureWithImageNamed:@"naveEnemiga.png"];
-    texture.filteringMode = SKTextureFilteringNearest;
-    SKSpriteNode *enemigo = [SKSpriteNode spriteNodeWithTexture:texture];
-    enemigo.position = CGPointMake(skRand(40, self.size.width-150), self.size.height);
-    enemigo.name = @"enemigo";
+    CGFloat type = skRand(0, 2);
+    SKSpriteNode *enemigo;
+    if(type<1){
+        SKTexture *texture = [SKTexture textureWithImageNamed:@"naveEnemiga.png"];
+        texture.filteringMode = SKTextureFilteringNearest;
+        enemigo = [SKSpriteNode spriteNodeWithTexture:texture];
+        enemigo.position = CGPointMake(skRand(40, self.size.width-150), self.size.height);
+        enemigo.name = @"enemigo";
+    }
+    else{
+        SKTexture *texture = [SKTexture textureWithImageNamed:@"naveEnemiga2.png"];
+        texture.filteringMode = SKTextureFilteringNearest;
+        enemigo = [SKSpriteNode spriteNodeWithTexture:texture];
+        enemigo.position = CGPointMake(skRand(40, self.size.width-150), self.size.height);
+        enemigo.name = @"enemigo";
+    }
     
     enemigo.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:enemigo.size];
     enemigo.physicsBody.dynamic = NO;
@@ -298,7 +298,7 @@ static inline CGFloat skRand(CGFloat low, CGFloat high){
     
     if(_timeCounter==60){
         _time++;
-        if(_time%50==0){
+        if(_time%60==0){//60
             if(_spawnRate>25)
                 _spawnRate-=5;
             if(_enemyShootRate>200)
@@ -310,7 +310,7 @@ static inline CGFloat skRand(CGFloat low, CGFloat high){
     if(_counter%5==0)
         _score++;
     _scoreNode.text=[NSString stringWithFormat:@"Score: %ld",(long)_score];
-    if(_counter==_spawnRate){
+    if(_counter>=_spawnRate){
         [self spawn];
         _counter=0;
     }
