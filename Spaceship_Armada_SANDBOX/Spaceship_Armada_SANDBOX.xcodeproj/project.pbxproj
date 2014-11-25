@@ -55,6 +55,10 @@
 		6FF14C3B1A21971D00E9FF20 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FF14C3A1A21971D00E9FF20 /* Foundation.framework */; };
 		6FF9B28C1A0C474900C80BE6 /* Bala.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B28B1A0C474900C80BE6 /* Bala.m */; };
 		6FF9B28F1A0C47B100C80BE6 /* HighscoreList.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FF9B28E1A0C47B100C80BE6 /* HighscoreList.m */; };
+		8736C6791A23B9E90069DAF5 /* facebookIcon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8736C6771A23B9E90069DAF5 /* facebookIcon.jpg */; };
+		8736C67A1A23B9E90069DAF5 /* twitterIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8736C6781A23B9E90069DAF5 /* twitterIcon.png */; };
+		8736C67D1A23BA6C0069DAF5 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8736C67C1A23BA6C0069DAF5 /* MenuViewController.m */; };
+		8770D79F1A23AFA400E45F32 /* HighscoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8770D79E1A23AFA400E45F32 /* HighscoreCell.m */; };
 		FB22D2F31A1FF4A4008F0F8A /* boss.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB22D2F01A1FF4A4008F0F8A /* boss.mp3 */; };
 		FB22D2F41A1FF4A4008F0F8A /* menu.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB22D2F11A1FF4A4008F0F8A /* menu.mp3 */; };
 		FB22D2F51A1FF4A4008F0F8A /* music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB22D2F21A1FF4A4008F0F8A /* music.mp3 */; };
@@ -130,6 +134,12 @@
 		6FF9B28B1A0C474900C80BE6 /* Bala.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bala.m; sourceTree = "<group>"; };
 		6FF9B28D1A0C47B100C80BE6 /* HighscoreList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighscoreList.h; sourceTree = "<group>"; };
 		6FF9B28E1A0C47B100C80BE6 /* HighscoreList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighscoreList.m; sourceTree = "<group>"; };
+		8736C6771A23B9E90069DAF5 /* facebookIcon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = facebookIcon.jpg; sourceTree = "<group>"; };
+		8736C6781A23B9E90069DAF5 /* twitterIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitterIcon.png; sourceTree = "<group>"; };
+		8736C67B1A23BA6C0069DAF5 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
+		8736C67C1A23BA6C0069DAF5 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
+		8770D79D1A23AFA400E45F32 /* HighscoreCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighscoreCell.h; sourceTree = "<group>"; };
+		8770D79E1A23AFA400E45F32 /* HighscoreCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighscoreCell.m; sourceTree = "<group>"; };
 		FB22D2F01A1FF4A4008F0F8A /* boss.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = boss.mp3; path = ../../boss.mp3; sourceTree = "<group>"; };
 		FB22D2F11A1FF4A4008F0F8A /* menu.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = menu.mp3; path = ../../menu.mp3; sourceTree = "<group>"; };
 		FB22D2F21A1FF4A4008F0F8A /* music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = music.mp3; path = ../../music.mp3; sourceTree = "<group>"; };
@@ -227,11 +237,17 @@
 				6F9FCC0119F85B3A00392670 /* GameScene.m */,
 				6FF14C2C1A2183D100E9FF20 /* play_button.png */,
 				6FF14C2D1A2183D100E9FF20 /* ins_label.png */,
+				8770D79D1A23AFA400E45F32 /* HighscoreCell.h */,
+				8770D79E1A23AFA400E45F32 /* HighscoreCell.m */,
 				6FF14C2E1A2183D100E9FF20 /* nombres.png */,
 				6F9FCC0319F85B3A00392670 /* GameScene.sks */,
 				6F9FCC0519F85B3A00392670 /* GameViewController.h */,
 				6F9FCC0619F85B3A00392670 /* GameViewController.m */,
 				6F9FCC0819F85B3A00392670 /* Main.storyboard */,
+				8736C67B1A23BA6C0069DAF5 /* MenuViewController.h */,
+				8736C67C1A23BA6C0069DAF5 /* MenuViewController.m */,
+				8736C6771A23B9E90069DAF5 /* facebookIcon.jpg */,
+				8736C6781A23B9E90069DAF5 /* twitterIcon.png */,
 				6F912F061A1C109900B4CE73 /* NombreViewController.h */,
 				6F912F071A1C109900B4CE73 /* NombreViewController.m */,
 				6F63D14F1A19AF0D001B3682 /* LocalHighscores.h */,
@@ -356,6 +372,7 @@
 			files = (
 				6FF14C2B1A21835E00E9FF20 /* navePrincipal2.png in Resources */,
 				6F2449D319FDBDC0002CA221 /* localHighscores.png in Resources */,
+				8736C67A1A23B9E90069DAF5 /* twitterIcon.png in Resources */,
 				6FF14C331A21860B00E9FF20 /* green_bullet.png in Resources */,
 				6FF14C301A2183D100E9FF20 /* ins_label.png in Resources */,
 				6F2449D019FDBDC0002CA221 /* credits.png in Resources */,
@@ -372,6 +389,7 @@
 				6F2449BE19FDBC6E002CA221 /* credits.png in Resources */,
 				6F9FCC0419F85B3A00392670 /* GameScene.sks in Resources */,
 				FB22D2F41A1FF4A4008F0F8A /* menu.mp3 in Resources */,
+				8736C6791A23B9E90069DAF5 /* facebookIcon.jpg in Resources */,
 				FB22D2F31A1FF4A4008F0F8A /* boss.mp3 in Resources */,
 				6F2449BF19FDBC6E002CA221 /* globalHighscores.png in Resources */,
 				6F2449C419FDBC6E002CA221 /* StartGame.png in Resources */,
@@ -410,12 +428,14 @@
 			files = (
 				6F9FCC0719F85B3A00392670 /* GameViewController.m in Sources */,
 				6F912F081A1C109900B4CE73 /* NombreViewController.m in Sources */,
+				8770D79F1A23AFA400E45F32 /* HighscoreCell.m in Sources */,
 				6FF9B28C1A0C474900C80BE6 /* Bala.m in Sources */,
 				6F63D1511A19AF0D001B3682 /* LocalHighscores.m in Sources */,
 				6F9FCBFF19F85B3A00392670 /* AppDelegate.m in Sources */,
 				6FF9B28F1A0C47B100C80BE6 /* HighscoreList.m in Sources */,
 				6F9FCC0219F85B3A00392670 /* GameScene.m in Sources */,
 				6F9FCBFC19F85B3A00392670 /* main.m in Sources */,
+				8736C67D1A23BA6C0069DAF5 /* MenuViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,6 +7,7 @@
 //
 
 #import "LocalHighscores.h"
+#import "HighscoreCell.h"
 
 @interface LocalHighscores (){
     NSMutableArray *localScores;
@@ -52,13 +53,18 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    
+    HighscoreCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     // Configure the cell...
     NSDictionary *obj = localScores[indexPath.row];
     NSString *puntuacion = [NSString stringWithFormat:@"%@", [obj objectForKey:@"score"]];
-    cell.textLabel.text = [obj objectForKey:@"nombre"];
-    cell.detailTextLabel.text = puntuacion;
+    NSString *tiempo = [NSString stringWithFormat:@"%@", [obj objectForKey:@"time"]];
+    cell.nombreLabel.text = [obj objectForKey:@"nombre"];
+    cell.scoreLabel.text = puntuacion;
+    cell.timeLabel.text = tiempo;
+    
+    UIImage *imag = [UIImage imageNamed:@"enrique.jpg"];
+    cell.imagen.image = imag;
+    cell.imagen.contentMode = UIViewContentModeScaleAspectFit;
     return cell;
 }
 

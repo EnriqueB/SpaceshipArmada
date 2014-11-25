@@ -38,9 +38,10 @@ CMMotionManager *motionManager;
     _counter=0;
     _counterPlayer=0;
     _spawnRate=100;
-    _enemyShootRate=200; //2000
+    _enemyShootRate=2000; //2000
     _playerShootRate=300;
     _time=0;
+    _gameOver = FALSE;
     
     
     SKSpriteNode *sn = [SKSpriteNode spriteNodeWithImageNamed:@"backgroundJuego.png"];
@@ -100,8 +101,10 @@ CMMotionManager *motionManager;
                 shouldMove = YES;
             }
             if(shouldMove){
-                SKAction *action = [SKAction moveTo:CGPointMake(destX, destY) duration:.5];
-                [jugador runAction:action];
+                if(destY>40 && destY < self.size.height-40 && destX > 40 && destX <self.size.width-40){
+                    SKAction *action = [SKAction moveTo:CGPointMake(destX, destY) duration:.5];
+                    [jugador runAction:action];
+                }
             }
         }];
     }
@@ -119,7 +122,7 @@ CMMotionManager *motionManager;
     CGPathAddLineToPoint(path2, NULL, 0, -100);
     CGPathAddLineToPoint(path2, NULL, 150, -100);
     CGPathAddLineToPoint(path2, NULL, 150, -200);
-    CGPathAddLineToPoint(path2, NULL, 5, -200);
+    CGPathAddLineToPoint(path2, NULL, 0, -200);
     
 }
 static inline CGFloat skRandf(){
@@ -153,11 +156,35 @@ static inline CGFloat skRand(CGFloat low, CGFloat high){
 
     }];
 }
--(void) gameOver{
+-(void) gameOverMethod{
     _spawnRate = 0;
     [self removeAllActions];
     [self removeAllChildren];
-    self.gameOverBlock(_score, _time);
+    _gameOver = TRUE;
+    SKNode *message = [SKNode node];
+    SKLabelNode *a = [SKLabelNode labelNodeWithFontNamed:@"Arial"];
+    SKLabelNode *b = [SKLabelNode labelNodeWithFontNamed:@"Arial"];
+    SKLabelNode *c = [SKLabelNode labelNodeWithFontNamed:@"Arial"];
+    SKLabelNode *d = [SKLabelNode labelNodeWithFontNamed:@"Arial"];
+    a.fontSize = 50;
+    b.fontSize = 50;
+    c.fontSize = 50;
+    d.fontSize = 50;
+    a.text = [NSString stringWithFormat:@"Game over!"];
+    b.text = [NSString stringWithFormat:@"Your score was:"];
+    c.text = [NSString stringWithFormat:@"%ld", (long)_score];
+    d.text = [NSString stringWithFormat:@"Touch anywhere to return"];
+    //a.position = CGPointMake(self.size.width/2, self.size.width/2+200);
+    b.position = CGPointMake(b.position.x , b.position.y-100);
+    c.position = CGPointMake(c.position.x, c.position.y-200);
+    d.position = CGPointMake(d.position.x, d.position.y-300);
+    [message addChild:a];
+    [message addChild:b];
+    [message addChild:c];
+    [message addChild:d];
+    message.position = CGPointMake(self.size.width/2, self.size.height/2+200);
+    [self addChild:message];
+    sleep(1);
 }
 -(void)didBeginContact:(SKPhysicsContact*)contact{
     uint32_t bitMaskA = contact.bodyA.categoryBitMask;
@@ -168,13 +195,13 @@ static inline CGFloat skRand(CGFloat low, CGFloat high){
     if(([contact.bodyA.node.name isEqualToString:@"jugador"] && bitMaskB == enemyCategory) || ([contact.bodyB.node.name isEqualToString:@"jugador"] && bitMaskA == enemyCategory)){
         
         //game over
-        [self gameOver];
+        [self gameOverMethod];
     }
     
     if(([contact.bodyA.node.name isEqualToString:@"jugador"] && bitMaskB == enemyBulletCategory) || ([contact.bodyB.node.name isEqualToString:@"jugador"] && bitMaskA == enemyBulletCategory)){
         
         //game over
-        [self gameOver];
+        [self gameOverMethod];
     }
     
     if(([contact.bodyA.node.name isEqualToString:@"balaJugador"] && bitMaskB == enemyCategory) || ([contact.bodyB.node.name isEqualToString:@"balaJugador"] && bitMaskA == enemyCategory)){
@@ -187,24 +214,13 @@ static inline CGFloat skRand(CGFloat low, CGFloat high){
     
 }
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    /* Called when a touch begins
+    
     
     for (UITouch *touch in touches) {
         CGPoint location = [touch locationInNode:self];
-        
-        SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithImageNamed:@"bullet1.png"];
-        
-        sprite.xScale = 1;
-        sprite.yScale = 1;
-        sprite.position = location;
-        
-        SKAction *action = [SKAction rotateByAngle:M_PI duration:1];
-        
-        [sprite runAction:[SKAction repeatActionForever:action]];
-        
-        [self addChild:sprite];
-     }
-     */
+        self.gameOverBlock(_score, _time);
+    }
+    
      
 }
 -(SKAction *)shootMethod:(BOOL )player posX:(float)X posY:(float)Y{
@@ -293,26 +309,27 @@ static inline CGFloat skRand(CGFloat low, CGFloat high){
     
 }
 -(void)update:(CFTimeInterval)currentTime {
-    _counter++;
-    _timeCounter++;
-    
-    if(_timeCounter==60){
-        _time++;
-        if(_time%60==0){//60
-            if(_spawnRate>25)
-                _spawnRate-=5;
-            if(_enemyShootRate>200)
-                _enemyShootRate-=20;
+    if(!_gameOver){
+        _counter++;
+        _timeCounter++;
+        if(_timeCounter==60){ //60
+            _time++;
+            if(_time%60==0){//60
+                if(_spawnRate>15)
+                    _spawnRate-=5;
+                if(_enemyShootRate>500)
+                    _enemyShootRate-=20;
+            }
+            _timeCounter=0;
         }
-        _timeCounter=0;
-    }
 
-    if(_counter%5==0)
-        _score++;
-    _scoreNode.text=[NSString stringWithFormat:@"Score: %ld",(long)_score];
-    if(_counter>=_spawnRate){
-        [self spawn];
-        _counter=0;
+        if(_counter%5==0)
+            _score++;
+        _scoreNode.text=[NSString stringWithFormat:@"Score: %ld",(long)_score];
+        if(_counter>=_spawnRate){
+            [self spawn];
+            _counter=0;
+        }
     }
 }
 
