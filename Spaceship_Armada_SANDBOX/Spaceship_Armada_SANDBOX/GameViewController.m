@@ -30,9 +30,9 @@
 
 @implementation GameViewController
 
-- (void)viewWillLayoutSubviews
+- (void)viewDidLoad
 {
-    [super viewWillLayoutSubviews];
+    [super viewDidLoad];
     self.navigationController.navigationBarHidden= YES;
     
     // Configure the view.
@@ -58,7 +58,7 @@
     [_skView removeFromSuperview];
     _lastGameScore = score;
     [self setHighscores:[HighscoreList getSharedInstance]];
-    [_highscores agregar:_highscores.playerName score:_lastGameScore time:t];
+    [_highscores agregar:_highscores.playerName score:_lastGameScore time:t foto:_highscores.foto];
     self.navigationController.navigationBarHidden = NO;
     [self.navigationController popToRootViewControllerAnimated:NO];
 }

@@ -61,9 +61,8 @@
     cell.nombreLabel.text = [obj objectForKey:@"nombre"];
     cell.scoreLabel.text = puntuacion;
     cell.timeLabel.text = tiempo;
-    
-    UIImage *imag = [UIImage imageNamed:@"enrique.jpg"];
-    cell.imagen.image = imag;
+    UIImage *foto = [obj objectForKey:@"foto"];
+    cell.imagen.image = foto;
     cell.imagen.contentMode = UIViewContentModeScaleAspectFit;
     return cell;
 }

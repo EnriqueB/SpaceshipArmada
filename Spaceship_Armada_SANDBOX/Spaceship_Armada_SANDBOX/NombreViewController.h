@@ -9,10 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "HighscoreList.h"
 
-@interface NombreViewController : UIViewController
+@interface NombreViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property (strong, nonatomic) IBOutlet UITextField *nombre;
 @property (strong, nonatomic) HighscoreList *highscores;
 
 - (IBAction)save:(id)sender;
+- (IBAction)tomarFoto:(id)sender;
 
 @end

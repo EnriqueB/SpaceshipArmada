@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F861B9B1A2D347000FE7474 /* GlobalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F861B9A1A2D347000FE7474 /* GlobalCell.m */; };
+		5F861B9E1A2D38F500FE7474 /* GlobalHighscoresController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F861B9D1A2D38F500FE7474 /* GlobalHighscoresController.m */; };
+		5F861BA11A2D4EE500FE7474 /* VideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F861BA01A2D4EE500FE7474 /* VideoViewController.m */; };
 		6F2449BE19FDBC6E002CA221 /* credits.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F2449B619FDBC6E002CA221 /* credits.png */; };
 		6F2449BF19FDBC6E002CA221 /* globalHighscores.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F2449B719FDBC6E002CA221 /* globalHighscores.png */; };
 		6F2449C019FDBC6E002CA221 /* Instructions.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F2449B819FDBC6E002CA221 /* Instructions.png */; };
@@ -62,6 +65,10 @@
 		FB22D2F31A1FF4A4008F0F8A /* boss.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB22D2F01A1FF4A4008F0F8A /* boss.mp3 */; };
 		FB22D2F41A1FF4A4008F0F8A /* menu.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB22D2F11A1FF4A4008F0F8A /* menu.mp3 */; };
 		FB22D2F51A1FF4A4008F0F8A /* music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FB22D2F21A1FF4A4008F0F8A /* music.mp3 */; };
+		FB2F76A01A2CCC080008F23E /* unknown_user.png in Resources */ = {isa = PBXBuildFile; fileRef = FB2F769F1A2CCC080008F23E /* unknown_user.png */; };
+		FB2F76A21A2CE08F0008F23E /* camaraIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = FB2F76A11A2CE08F0008F23E /* camaraIcon.png */; };
+		FB2F76A51A2CE6460008F23E /* Volume.png in Resources */ = {isa = PBXBuildFile; fileRef = FB2F76A31A2CE6460008F23E /* Volume.png */; };
+		FB2F76A61A2CE6460008F23E /* Pause.png in Resources */ = {isa = PBXBuildFile; fileRef = FB2F76A41A2CE6460008F23E /* Pause.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +82,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5F861B991A2D347000FE7474 /* GlobalCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GlobalCell.h; path = ../GlobalCell.h; sourceTree = "<group>"; };
+		5F861B9A1A2D347000FE7474 /* GlobalCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GlobalCell.m; path = ../GlobalCell.m; sourceTree = "<group>"; };
+		5F861B9C1A2D38F500FE7474 /* GlobalHighscoresController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalHighscoresController.h; sourceTree = "<group>"; };
+		5F861B9D1A2D38F500FE7474 /* GlobalHighscoresController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalHighscoresController.m; sourceTree = "<group>"; };
+		5F861B9F1A2D4EE500FE7474 /* VideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoViewController.h; sourceTree = "<group>"; };
+		5F861BA01A2D4EE500FE7474 /* VideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoViewController.m; sourceTree = "<group>"; };
 		6F2449B619FDBC6E002CA221 /* credits.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = credits.png; sourceTree = "<group>"; };
 		6F2449B719FDBC6E002CA221 /* globalHighscores.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = globalHighscores.png; sourceTree = "<group>"; };
 		6F2449B819FDBC6E002CA221 /* Instructions.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Instructions.png; sourceTree = "<group>"; };
@@ -143,6 +156,10 @@
 		FB22D2F01A1FF4A4008F0F8A /* boss.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = boss.mp3; path = ../../boss.mp3; sourceTree = "<group>"; };
 		FB22D2F11A1FF4A4008F0F8A /* menu.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = menu.mp3; path = ../../menu.mp3; sourceTree = "<group>"; };
 		FB22D2F21A1FF4A4008F0F8A /* music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = music.mp3; path = ../../music.mp3; sourceTree = "<group>"; };
+		FB2F769F1A2CCC080008F23E /* unknown_user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = unknown_user.png; path = ../unknown_user.png; sourceTree = "<group>"; };
+		FB2F76A11A2CE08F0008F23E /* camaraIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camaraIcon.png; sourceTree = "<group>"; };
+		FB2F76A31A2CE6460008F23E /* Volume.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Volume.png; sourceTree = "<group>"; };
+		FB2F76A41A2CE6460008F23E /* Pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Pause.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,10 +248,15 @@
 		6F9FCBF819F85B3A00392670 /* Spaceship_Armada_SANDBOX */ = {
 			isa = PBXGroup;
 			children = (
+				FB2F769F1A2CCC080008F23E /* unknown_user.png */,
 				6F9FCBFD19F85B3A00392670 /* AppDelegate.h */,
 				6F9FCBFE19F85B3A00392670 /* AppDelegate.m */,
 				6F9FCC0019F85B3A00392670 /* GameScene.h */,
+				5F861B991A2D347000FE7474 /* GlobalCell.h */,
+				5F861B9A1A2D347000FE7474 /* GlobalCell.m */,
 				6F9FCC0119F85B3A00392670 /* GameScene.m */,
+				FB2F76A31A2CE6460008F23E /* Volume.png */,
+				FB2F76A41A2CE6460008F23E /* Pause.png */,
 				6FF14C2C1A2183D100E9FF20 /* play_button.png */,
 				6FF14C2D1A2183D100E9FF20 /* ins_label.png */,
 				8770D79D1A23AFA400E45F32 /* HighscoreCell.h */,
@@ -244,6 +266,10 @@
 				6F9FCC0519F85B3A00392670 /* GameViewController.h */,
 				6F9FCC0619F85B3A00392670 /* GameViewController.m */,
 				6F9FCC0819F85B3A00392670 /* Main.storyboard */,
+				5F861B9F1A2D4EE500FE7474 /* VideoViewController.h */,
+				5F861BA01A2D4EE500FE7474 /* VideoViewController.m */,
+				5F861B9C1A2D38F500FE7474 /* GlobalHighscoresController.h */,
+				5F861B9D1A2D38F500FE7474 /* GlobalHighscoresController.m */,
 				8736C67B1A23BA6C0069DAF5 /* MenuViewController.h */,
 				8736C67C1A23BA6C0069DAF5 /* MenuViewController.m */,
 				8736C6771A23B9E90069DAF5 /* facebookIcon.jpg */,
@@ -256,6 +282,7 @@
 				6FF9B28B1A0C474900C80BE6 /* Bala.m */,
 				6FF9B28D1A0C47B100C80BE6 /* HighscoreList.h */,
 				6FF9B28E1A0C47B100C80BE6 /* HighscoreList.m */,
+				FB2F76A11A2CE08F0008F23E /* camaraIcon.png */,
 				6F9FCC0B19F85B3A00392670 /* Images.xcassets */,
 				6F2449B519FDBC6E002CA221 /* Assets */,
 				6F9FCC0D19F85B3A00392670 /* LaunchScreen.xib */,
@@ -376,6 +403,7 @@
 				6FF14C331A21860B00E9FF20 /* green_bullet.png in Resources */,
 				6FF14C301A2183D100E9FF20 /* ins_label.png in Resources */,
 				6F2449D019FDBDC0002CA221 /* credits.png in Resources */,
+				FB2F76A21A2CE08F0008F23E /* camaraIcon.png in Resources */,
 				6FF14C311A2183D100E9FF20 /* nombres.png in Resources */,
 				6FF14C291A21830800E9FF20 /* naveEnemiga.png in Resources */,
 				6FEF56751A14291300767F83 /* bullet2_blue.png in Resources */,
@@ -395,7 +423,9 @@
 				6F2449C419FDBC6E002CA221 /* StartGame.png in Resources */,
 				6F63D14E1A19A6AE001B3682 /* backgroundJuego.png in Resources */,
 				6F2449C519FDBC6E002CA221 /* Thumbs.db in Resources */,
+				FB2F76A01A2CCC080008F23E /* unknown_user.png in Resources */,
 				6F9FCC0A19F85B3A00392670 /* Main.storyboard in Resources */,
+				FB2F76A61A2CE6460008F23E /* Pause.png in Resources */,
 				6FEF567B1A14291300767F83 /* naveJugador.png in Resources */,
 				6F2449C019FDBC6E002CA221 /* Instructions.png in Resources */,
 				6F2449D719FDBDC0002CA221 /* conde.jpg in Resources */,
@@ -409,6 +439,7 @@
 				6FEF56741A14291300767F83 /* bullet1.png in Resources */,
 				6F2449C119FDBC6E002CA221 /* localHighscores.png in Resources */,
 				6FF14C2F1A2183D100E9FF20 /* play_button.png in Resources */,
+				FB2F76A51A2CE6460008F23E /* Volume.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,10 +463,13 @@
 				6FF9B28C1A0C474900C80BE6 /* Bala.m in Sources */,
 				6F63D1511A19AF0D001B3682 /* LocalHighscores.m in Sources */,
 				6F9FCBFF19F85B3A00392670 /* AppDelegate.m in Sources */,
+				5F861B9B1A2D347000FE7474 /* GlobalCell.m in Sources */,
 				6FF9B28F1A0C47B100C80BE6 /* HighscoreList.m in Sources */,
 				6F9FCC0219F85B3A00392670 /* GameScene.m in Sources */,
 				6F9FCBFC19F85B3A00392670 /* main.m in Sources */,
 				8736C67D1A23BA6C0069DAF5 /* MenuViewController.m in Sources */,
+				5F861BA11A2D4EE500FE7474 /* VideoViewController.m in Sources */,
+				5F861B9E1A2D38F500FE7474 /* GlobalHighscoresController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -560,7 +594,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Spaceship_Armada_SANDBOX/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -571,7 +605,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Spaceship_Armada_SANDBOX/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

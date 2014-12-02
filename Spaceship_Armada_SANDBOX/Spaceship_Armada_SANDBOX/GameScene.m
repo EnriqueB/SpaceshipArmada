@@ -9,8 +9,6 @@
 #import "GameScene.h"
 
 @interface GameScene()
-@property BOOL contentCreated;
-
 @end
 static const uint32_t playerCategory = 0x1<<0;
 static const uint32_t enemyCategory = 0x1<<1;
@@ -26,8 +24,7 @@ CMMotionManager *motionManager;
     //self.physics
     if(!_contentCreated){
         [self createSceneContents];
-        SKAction *music = [SKAction repeatActionForever:[SKAction playSoundFileNamed:@"music.mp3" waitForCompletion:YES]];
-        [self runAction:music];
+        
         _contentCreated=TRUE;
     }
 }
@@ -42,7 +39,11 @@ CMMotionManager *motionManager;
     _playerShootRate=300;
     _time=0;
     _gameOver = FALSE;
-    
+    _song = [SKSpriteNode spriteNodeWithImageNamed:@"bullet2."];
+    _song.position = CGPointMake(-100, -100);
+    SKAction *music = [SKAction repeatActionForever:[SKAction playSoundFileNamed:@"music.mp3" waitForCompletion:YES]];
+    [_song runAction:music];
+    [self addChild:_song];
     
     SKSpriteNode *sn = [SKSpriteNode spriteNodeWithImageNamed:@"backgroundJuego.png"];
     sn.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
@@ -65,11 +66,20 @@ CMMotionManager *motionManager;
     SKTexture *texture = [SKTexture textureWithImageNamed:@"navePrincipal2.png"];
     texture.filteringMode = SKTextureFilteringNearest;
     
+    SKTexture *texture2 = [SKTexture textureWithImageNamed:@"Pause.png"];
+    texture2.filteringMode=SKTextureFilteringNearest;
+    
+    SKSpriteNode *pausa = [SKSpriteNode spriteNodeWithTexture:texture2];
+    pausa.position = CGPointMake(20, self.size.height-20);
+    pausa.name = @"pause";
+    [pausa setScale:0.4];
+    [self addChild:pausa];
+    
     
     SKSpriteNode *jugador = [SKSpriteNode spriteNodeWithTexture:texture];
     jugador.name = @"jugador";
     jugador.position = CGPointMake(300, 100);
-    jugador.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:jugador.size];
+    jugador.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(20, 20)];
     jugador.physicsBody.categoryBitMask = playerCategory;
     jugador.physicsBody.collisionBitMask = enemyCategory;
     jugador.physicsBody.contactTestBitMask = enemyCategory;
@@ -158,6 +168,7 @@ static inline CGFloat skRand(CGFloat low, CGFloat high){
 }
 -(void) gameOverMethod{
     _spawnRate = 0;
+    [_song removeAllActions];
     [self removeAllActions];
     [self removeAllChildren];
     _gameOver = TRUE;
@@ -215,10 +226,19 @@ static inline CGFloat skRand(CGFloat low, CGFloat high){
 }
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     
-    
-    for (UITouch *touch in touches) {
+    if(_gameOver){
+        for (UITouch *touch in touches) {
+            CGPoint location = [touch locationInNode:self];
+            self.gameOverBlock(_score, _time);
+        }
+    }
+    for( UITouch *touch in touches) {
+        SKSpriteNode *pause = (SKSpriteNode*)[self childNodeWithName:@"pause"];
         CGPoint location = [touch locationInNode:self];
-        self.gameOverBlock(_score, _time);
+        if([pause containsPoint:location])
+        {
+            self.scene.view.paused = !self.scene.view.paused;
+        }
     }
     
      
@@ -246,7 +266,7 @@ static inline CGFloat skRand(CGFloat low, CGFloat high){
                 move =  [SKAction moveByX:0 y:-70 duration:1];
         }
         else
-            move = [SKAction moveByX:0 y:55 duration:.7];
+            move = [SKAction moveByX:0 y:60 duration:.5];
         if(!player)
             bala.name=@"bala";
         else

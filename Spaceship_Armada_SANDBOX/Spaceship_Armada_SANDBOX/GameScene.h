@@ -21,7 +21,10 @@
 @property (assign, nonatomic) NSInteger timeCounter;
 @property (assign, nonatomic) NSInteger counterPlayer;
 @property (assign, nonatomic) BOOL gameOver;
+@property (assign, nonatomic) BOOL contentCreated;
 @property (strong, nonatomic) SKLabelNode *scoreNode;
+@property (strong, nonatomic) HighscoreList *highscores;
+@property (strong, nonatomic) SKSpriteNode *song;
 @property (nonatomic, copy) void(^gameOverBlock)(NSInteger score, NSInteger game_time);
 
 
