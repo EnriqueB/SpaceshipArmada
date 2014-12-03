@@ -37,8 +37,6 @@
     
     // Configure the view.
     _skView = (SKView *)self.view;
-    _skView.showsFPS = YES;
-    _skView.showsNodeCount = YES;
     /* Sprite Kit applies additional optimizations to improve rendering performance */
     _skView.ignoresSiblingOrder = YES;
     _skView.autoresizesSubviews = YES;
